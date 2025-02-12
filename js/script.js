@@ -31,6 +31,7 @@ var translations = {
     "srs": "serious",
     "srsly": "seriously",
     "cz": "cause",
+    "bc": "because",
     "atp": "at this point",
     "oms": "on my soul",
     "diff": "different",
@@ -52,7 +53,8 @@ var translations = {
     "wdym": "what do you mean",
     "ong": "on god",
     "js": "just",
-    "mn": "man"
+    "mn": "man",
+    "sp": "shakespeare"
 };
 
 var textbox = document.getElementById("inputText");
@@ -73,9 +75,10 @@ window.test = {
             let word = splitText[i];
             let punctuation = "";
 
-            if (word.match(/[.!?]/)) {
-                punctuation = word.slice(-1); 
-                word = word.slice(0, -1); 
+            let match = word.match(/[^\w\s]+$/);  // Match any punctuation at the end of the word
+            if (match) {
+                punctuation = match[0];  // Store the punctuation
+                word = word.slice(0, -punctuation.length);  // Remove the punctuation from the word
             }
 
             if (translations[word]) {
