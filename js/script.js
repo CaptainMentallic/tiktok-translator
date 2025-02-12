@@ -49,7 +49,8 @@ var translations = {
     "y": "why",
     "w": "with",
     "sybau": "shut your bitch ass up",
-    "wdym": "what do you mean"
+    "wdym": "what do you mean",
+    "ong": "on god"
 };
 
 var textbox = document.getElementById("inputText");
