@@ -61,27 +61,27 @@ var textbox = document.getElementById("inputText");
 var resultbox = document.getElementById("outputText");
 var translateBtn = document.getElementById("translateBtn");
 
-translateBtn.addEventListener("click", () => {
+translateBtn.addEventListener("click", () => { // get result from the gettranslate function and display it on the result box
     var result = window.test.getTranslation(textbox.value);
     resultbox.textContent = result;
 });
 
 window.test = {
     getTranslation(text, debug = false) {
-        var splitText = text.split(" ");
-        var newText = "";
+        var splitText = text.split(" "); // split the text by spaces
+        var newText = ""; // translated text
 
-        for (let i = 0; i < splitText.length; i++) {
+        for (let i = 0; i < splitText.length; i++) { // loop through every word
             let word = splitText[i];
             let punctuation = "";
 
-            let match = word.match(/[^\w\s]+$/);  // Match any punctuation at the end of the word
-            if (match) {
-                punctuation = match[0];  // Store the punctuation
-                word = word.slice(0, -punctuation.length);  // Remove the punctuation from the word
+            let match = word.match(/[^\w\s]+$/);
+            if (match) { // if punctuation found
+                punctuation = match[0];  // store the punctuation
+                word = word.slice(0, -punctuation.length);  // remove punctuation from the word
             }
 
-            if (translations[word]) {
+            if (translations[word]) { // if there was a translation found
                 newText += translations[word] + punctuation + " ";
             } else {
                 if (debug) {
@@ -92,6 +92,6 @@ window.test = {
         }
 
         console.log(newText);
-        return newText.trim();
+        return newText.trim(); // remove extra whitespace
     }
 };
