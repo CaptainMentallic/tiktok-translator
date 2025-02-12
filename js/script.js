@@ -1,44 +1,44 @@
 var translations = {
-    "fr" : "for real",
-    "lol" : "laugh out loud",
-    "brb" : "be right back",
-    "btw" : "by the way",
-    "bff" : "best friends forever",
-    "imho" : "in my humble opinion",
-    "omg" : "oh my god",
-    "tmi" : "too much information",
-    "ttyl" : "talk to you later",
-    "wtf" : "what the fuck",
-    "yolo" : "you only live once",
-    "idk" : "i don't know",
-    "smh" : "shaking my head",
-    "tbh" : "to be honest",
-    "omw" : "on my way",
-    "irl" : "in real life",
-    "imy" : "i miss you",
-    "ily" : "i love you",
-    "idc" : "i dont care",
-    "ts" : "this shit",
-    "ts (this)" : "this",
-    "pmo" : "piss me off",
-    "n" : "and" ,
-    "sm" : "so much",
-    "r" : "are",
-    "u" : "you",
-    "h8" : "hate",
-    "vro" : "bro",
-    "sb" : "so bad",
-    "srs" : "serious",
-    "srsly" : "seriously",
-    "cz" : "cause",
-    "atp" : "at this point",
-    "oms" : "on my soul",
-    "diff" : "different",
-    "idek" : "i dont even know",
-    "tf" : "the fuck",
-    "ptso" : "put that shit on",
-    "rn" : "right now",
-    "fyi" : "for your information",
+    "fr": "for real",
+    "lol": "laugh out loud",
+    "brb": "be right back",
+    "btw": "by the way",
+    "bff": "best friends forever",
+    "imho": "in my humble opinion",
+    "omg": "oh my god",
+    "tmi": "too much information",
+    "ttyl": "talk to you later",
+    "wtf": "what the fuck",
+    "yolo": "you only live once",
+    "idk": "i don't know",
+    "smh": "shaking my head",
+    "tbh": "to be honest",
+    "omw": "on my way",
+    "irl": "in real life",
+    "imy": "i miss you",
+    "ily": "i love you",
+    "idc": "i dont care",
+    "ts": "this shit",
+    "ts (this)": "this",
+    "pmo": "piss me off",
+    "n": "and",
+    "sm": "so much",
+    "r": "are",
+    "u": "you",
+    "h8": "hate",
+    "vro": "bro",
+    "sb": "so bad",
+    "srs": "serious",
+    "srsly": "seriously",
+    "cz": "cause",
+    "atp": "at this point",
+    "oms": "on my soul",
+    "diff": "different",
+    "idek": "i dont even know",
+    "tf": "the fuck",
+    "ptso": "put that shit on",
+    "rn": "right now",
+    "fyi": "for your information",
     "shkspr": "shakespeare",
     "icl": "i cant lie",
     "ngl": "not gonna lie",
@@ -50,7 +50,9 @@ var translations = {
     "w": "with",
     "sybau": "shut your bitch ass up",
     "wdym": "what do you mean",
-    "ong": "on god"
+    "ong": "on god",
+    "js": "just",
+    "mn": "man"
 };
 
 var textbox = document.getElementById("inputText");
@@ -62,23 +64,31 @@ translateBtn.addEventListener("click", () => {
     resultbox.textContent = result;
 });
 
-window.test = { 
+window.test = {
     getTranslation(text, debug = false) {
         var splitText = text.split(" ");
         var newText = "";
-        
+
         for (let i = 0; i < splitText.length; i++) {
-            if (translations[splitText[i]]) {
-                newText += translations[splitText[i]] + " ";
+            let word = splitText[i];
+            let punctuation = "";
+
+            if (word.match(/[.!?]/)) {
+                punctuation = word.slice(-1); 
+                word = word.slice(0, -1); 
+            }
+
+            if (translations[word]) {
+                newText += translations[word] + punctuation + " ";
             } else {
                 if (debug) {
-                    console.log("Word not found: " + splitText[i]);
+                    console.log("Word not found: " + word);
                 }
-                newText += splitText[i] + " ";
+                newText += word + punctuation + " ";
             }
         }
-        
+
         console.log(newText);
         return newText.trim();
     }
-}
+};
