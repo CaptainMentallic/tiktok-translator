@@ -57,7 +57,8 @@ var translations = {
     "sp": "shakespeare",
     "wbu": "what about you",
     "dnt": "dont",
-    "evn": "even"
+    "evn": "even",
+    "ss": "screenshot"
 };
 
 var textbox = document.getElementById("inputText");
