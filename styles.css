@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 70vw;
+    height: 70vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.translator-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+textarea {
+    width: 100%;
+    height: 50%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+select,
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+button {
+    background: #007bff;
+    color: white;
+}
+.output {
+    background: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 50px;
+    font-size: 1.2rem;
+}
