@@ -54,7 +54,8 @@ var translations = {
     "ong": "on god",
     "js": "just",
     "mn": "man",
-    "sp": "shakespeare"
+    "sp": "shakespeare",
+    "wbu": "what about you"
 };
 
 var textbox = document.getElementById("inputText");
@@ -68,7 +69,7 @@ translateBtn.addEventListener("click", () => { // get result from the gettransla
 
 window.test = {
     getTranslation(text, debug = false) {
-        var splitText = text.split(" "); // split the text by spaces
+        var splitText = text.toLowerCase().split(" "); // split the text by spaces
         var newText = ""; // translated text
 
         for (let i = 0; i < splitText.length; i++) { // loop through every word
