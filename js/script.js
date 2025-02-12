@@ -58,7 +58,9 @@ var translations = {
     "wbu": "what about you",
     "dnt": "dont",
     "evn": "even",
-    "ss": "screenshot"
+    "ss": "screenshot",
+    "stfu": "shut the fuck up",
+    "dem": "them"
 };
 
 var textbox = document.getElementById("inputText");
