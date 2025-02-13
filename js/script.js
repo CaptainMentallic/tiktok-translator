@@ -72,13 +72,15 @@ var translations = {
     "onb": "on bro",
     "wt": "what",
     "vxblts": "vexbolts",
+    "ty": "thank you",
+    "tysm": "thank you so much",
+    "plz": "please",
+    "pls": "please",
 
     // huzz translations
     "bruzz": "bro huzz",
     "chuzz": "chopped huzz",
-    "guzz": "gay huzz",
-    "cruzz": "",
-    "nuzz": ""
+    "guzz": "gay huzz"
 };
 
 var textbox = document.getElementById("inputText");
