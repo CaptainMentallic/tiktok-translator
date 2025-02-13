@@ -36,10 +36,25 @@
             <div class="output" id="outputText">Translated text will appear here...</div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    
     <footer>
-        <small id="version-text">v1.02</small>
+        <h3>Do you have anything I missed?</h3>
+        <button id="suggestion-button">Click to submit a request</button>
+        <small id="version-text">v1.03</small>
     </footer>
+    <div id="suggestion-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Submit Suggestion</h2>
+            <form id="suggestion-form">
+                <label for="description">Suggestion: (ex. gg = good game)</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    <script src="js/script.js"></script>
+    <script src="js/suggestions.js"></script>
 </body>
 
 </html>
