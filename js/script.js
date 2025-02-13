@@ -41,6 +41,7 @@ var translations = {
     "rn": "right now",
     "fyi": "for your information",
     "shkspr": "shakespeare",
+    "shkspre": "shakespeare",
     "icl": "i cant lie",
     "ngl": "not gonna lie",
     "b": "be",
@@ -60,7 +61,24 @@ var translations = {
     "evn": "even",
     "ss": "screenshot",
     "stfu": "shut the fuck up",
-    "dem": "them"
+    "dem": "them",
+    "den": "then",
+    "gng": "gang",
+    "ac": "actually",
+    "sus": "suspicious",
+    "istg": "i swear to god",
+    "gaf": "gave a fuck",
+    "acc": "actually",
+    "onb": "on bro",
+    "wt": "what",
+    "vxblts": "vexbolts",
+
+    // huzz translations
+    "bruzz": "bro huzz",
+    "chuzz": "chopped huzz",
+    "guzz": "gay huzz",
+    "cruzz": "",
+    "nuzz": ""
 };
 
 var textbox = document.getElementById("inputText");
@@ -73,31 +91,15 @@ translateBtn.addEventListener("click", () => { // get result from the gettransla
 });
 
 window.test = {
-    getTranslation(text, debug = false) {
-        var splitText = text.toLowerCase().split(" "); // split the text by spaces
-        var newText = ""; // translated text
-
-        for (let i = 0; i < splitText.length; i++) { // loop through every word
-            let word = splitText[i];
-            let punctuation = "";
-
-            let match = word.match(/[^\w\s]+$/);
-            if (match) { // if punctuation found
-                punctuation = match[0];  // store the punctuation
-                word = word.slice(0, -punctuation.length);  // remove punctuation from the word
-            }
-
-            if (translations[word]) { // if there was a translation found
-                newText += translations[word] + punctuation + " ";
+    getTranslation(text, debug = false) {        
+        return text.replace(/\b\w+\b/g, (word) => { // pattern matching all whole words found
+            let lowerWord = word.toLowerCase();
+            if (translations[lowerWord]) {
+                return translations[lowerWord];  // replace word if found
             } else {
-                if (debug) {
-                    console.log("Word not found: " + word);
-                }
-                newText += word + punctuation + " ";
+                if (debug) console.log("Word not found: " + word);
+                return word; // keep same word if not found
             }
-        }
-
-        console.log(newText);
-        return newText.trim(); // remove extra whitespace
+        });
     }
 };
