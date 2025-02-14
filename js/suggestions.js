@@ -36,16 +36,20 @@ function postToDiscord(json, isFormData = false) {
         .then(text => {
             if (text) {
                 try {
+                    alert("Suggestion submitted successfully, thank you!");
                     const data = JSON.parse(text);
                     console.log("Message sent:", data);
                 } catch (parseError) {
+                    alert("Suggestion submitted successfully, thank you!");
                     console.log("Message sent, but response is not valid JSON:", text);
                 }
             } else {
+                alert("Suggestion submitted successfully, thank you!");
                 console.log("Message sent successfully.");
             }
         })
         .catch(error => {
+            alert("There was an error sending the suggestion, please try again later.");
             console.error("Error sending message:", error);
         });
 }
@@ -102,6 +106,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
         form.reset();
         popup.style.display = "none";
-        alert("Suggestion submitted successfully, thank you!");
     });
 });
