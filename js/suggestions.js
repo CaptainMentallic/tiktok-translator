@@ -42,7 +42,7 @@ function postToDiscord(json, isFormData = false) {
                     console.log("Message sent, but response is not valid JSON:", text);
                 }
             } else {
-                console.log("Message sent successfully, no content returned.");
+                console.log("Message sent successfully.");
             }
         })
         .catch(error => {
