@@ -102,6 +102,7 @@ var translations = {
     "chigga": "chinese ni**a",
     "rsn": "reason",
     "nvr": "never",
+    "WTMWYOB": "welcome to mcdonalds what you order bruh",
 
     // huzz translations
     "bruzz": "bro huzz",
